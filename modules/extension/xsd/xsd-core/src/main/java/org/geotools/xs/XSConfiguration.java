@@ -109,6 +109,7 @@ import org.geotools.xs.bindings.XSUnsignedIntBinding;
 import org.geotools.xs.bindings.XSUnsignedLongBinding;
 import org.geotools.xs.bindings.XSUnsignedShortBinding;
 import org.geotools.xs.bindings.XSWildcardBinding;
+import org.geotools.xs.bindings.XSUuidBinding;
 
 
 /**
@@ -236,5 +237,6 @@ public class XSConfiguration extends Configuration {
         container.registerComponentImplementation(XS.UNSIGNEDLONG, XSUnsignedLongBinding.class);
         container.registerComponentImplementation(XS.UNSIGNEDSHORT, XSUnsignedShortBinding.class);
         container.registerComponentImplementation(XS.WILDCARD, XSWildcardBinding.class);
+        container.registerComponentImplementation(XS.UUID, XSUuidBinding.class);
     }
 }

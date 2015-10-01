@@ -1587,6 +1587,41 @@ public class XSSchema extends SchemaImpl {
     public static final AttributeType IDREF_TYPE = new AttributeTypeImpl(new NameImpl(
                 "http://www.w3.org/2001/XMLSchema", "IDREF"), java.lang.Object.class, false, false,
             Collections.EMPTY_LIST, NCNAME_TYPE, null);
+    
+    /**
+     * <p>
+     *   <pre>
+     *     <code>
+     *  &lt;xs:simpleType name="uuid" id="uuid"&gt;
+     *      &lt;xs:annotation&gt;
+     *          &lt;xs:appinfo&gt;
+     *              &lt;hfp:hasFacet name="length"/&gt;
+     *              &lt;hfp:hasFacet name="minLength"/&gt;
+     *              &lt;hfp:hasFacet name="maxLength"/&gt;
+     *              &lt;hfp:hasFacet name="pattern"/&gt;
+     *              &lt;hfp:hasFacet name="enumeration"/&gt;
+     *              &lt;hfp:hasFacet name="whiteSpace"/&gt;
+     *              &lt;hfp:hasProperty name="ordered" value="false"/&gt;
+     *              &lt;hfp:hasProperty name="bounded" value="false"/&gt;
+     *              &lt;hfp:hasProperty name="cardinality" value="countably infinite"/&gt;
+     *              &lt;hfp:hasProperty name="numeric" value="false"/&gt;
+     *          &lt;/xs:appinfo&gt;
+     *          &lt;xs:documentation source="http://www.w3.org/TR/xmlschema-2/#string"/&gt;
+     *      &lt;/xs:annotation&gt;
+     *      &lt;xs:restriction base="xs:anySimpleType"&gt;
+     *          &lt;xs:whiteSpace value="preserve" id="string.preserve"/&gt;
+     *      &lt;/xs:restriction&gt;
+     *  &lt;/xs:simpleType&gt;
+     *
+     *     </code>
+     *    </pre>
+     * </p>
+     *
+     * @generated
+     */
+    public static final AttributeType UUID_TYPE = new AttributeTypeImpl(new NameImpl(
+            "http://www.w3.org/2001/XMLSchema", "uuid"), java.util.UUID.class, false, false,
+        Collections.EMPTY_LIST, ANYSIMPLETYPE_TYPE, null);
 
     public XSSchema() {
         super("http://www.w3.org/2001/XMLSchema");
@@ -1648,6 +1683,7 @@ public class XSSchema extends SchemaImpl {
         put(new NameImpl("http://www.w3.org/2001/XMLSchema", "date"), DATE_TYPE);
         put(new NameImpl("http://www.w3.org/2001/XMLSchema", "allNNI"), ALLNNI_TYPE);
         put(new NameImpl("http://www.w3.org/2001/XMLSchema", "IDREF"), IDREF_TYPE);
+        put(new NameImpl("http://www.w3.org/2001/XMLSchema", "uuid"), UUID_TYPE);
     }
     
     /**
@@ -1696,6 +1732,7 @@ public class XSSchema extends SchemaImpl {
         profile.add(new NameImpl(XS.INTEGER)); // BigInteger.class
         profile.add(new NameImpl(XS.DECIMAL)); // BigDecimal.class
         profile.add(new NameImpl(XS.ANYURI)); // URI.class
+        profile.add(new NameImpl(XS.UUID)); // java.util.UUID.class
         return new ProfileImpl(this, profile);
     }
     
