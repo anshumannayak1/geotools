@@ -109,6 +109,8 @@ import org.geotools.xs.bindings.XSUnsignedIntBinding;
 import org.geotools.xs.bindings.XSUnsignedLongBinding;
 import org.geotools.xs.bindings.XSUnsignedShortBinding;
 import org.geotools.xs.bindings.XSWildcardBinding;
+// Fix for GEOT-5235 : WFS request for format GML3.2 generate exception for UUID
+import org.geotools.xs.bindings.XSUuidBinding;
 
 
 /**
@@ -236,5 +238,7 @@ public class XSConfiguration extends Configuration {
         container.registerComponentImplementation(XS.UNSIGNEDLONG, XSUnsignedLongBinding.class);
         container.registerComponentImplementation(XS.UNSIGNEDSHORT, XSUnsignedShortBinding.class);
         container.registerComponentImplementation(XS.WILDCARD, XSWildcardBinding.class);
+        // Fix for GEOT-5235 : WFS request for format GML3.2 generate exception for UUID
+        container.registerComponentImplementation(XS.UUID, XSUuidBinding.class);
     }
 }

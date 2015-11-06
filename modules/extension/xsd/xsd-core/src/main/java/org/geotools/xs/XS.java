@@ -171,6 +171,8 @@ public final class XS extends XSD {
     public static final QName UNSIGNEDSHORT = new QName("http://www.w3.org/2001/XMLSchema",
             "unsignedShort");
     public static final QName WILDCARD = new QName("http://www.w3.org/2001/XMLSchema", "wildcard");
+    // Fix for GEOT-5235 : WFS request for format GML3.2 generate exception for UUID
+    public static final QName UUID = new QName("http://www.w3.org/2001/XMLSchema", "uuid");
 
     //manually added
     
@@ -219,6 +221,8 @@ public final class XS extends XSD {
         proper.add(name(INTEGER)); //BigInteger.class
         proper.add(name(DECIMAL)); //BigDecimal.class
         proper.add(name(ANYURI)); //URI.class
+        // Fix for GEOT-5235 : WFS request for format GML3.2 generate exception for UUID
+        proper.add(name(UUID)); //java.util.UUID.class
         Schema profile = schema.profile( proper );
         
         return profile;
